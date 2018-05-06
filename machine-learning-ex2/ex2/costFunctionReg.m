@@ -20,7 +20,14 @@ grad = zeros(size(theta));
 
 
 
-
+hypothesis=sigmoid(X*theta);
+%Setting theta(1) to zero to limit regulization impact to theta(2) and beyond
+tempTheta = theta;
+tempTheta(1) = 0;
+regTerm=(lambda/(2*m))*sum(tempTheta.^2);
+J=1/m * sum((-1*y'*log(hypothesis))-((1-y')*log(1-hypothesis))) + regTerm;
+%J = (-1 / m) * sum(y.*log(sigmoid(X * theta)) + (1 - y).*log(1 - sigmoid(X * theta))) + (lambda / (2 * m))*sum(tempTheta.^2);
+grad=1/m*((X'*(hypothesis-y)) + lambda.*tempTheta());
 
 % =============================================================
 
