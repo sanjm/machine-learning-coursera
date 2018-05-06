@@ -8,7 +8,9 @@ function plotDecisionBoundary(theta, X, y)
 %      intercept.
 %   2) MxN, N>3 matrix, where the first column is all-ones
 
-% Plot Data
+% Plot Data`
+display("plotdecisionboundarydata")
+%display(X)
 plotData(X(:,2:3), y);
 hold on
 
@@ -18,6 +20,7 @@ if size(X, 2) <= 3
 
     % Calculate the decision boundary line
     plot_y = (-1./theta(3)).*(theta(2).*plot_x + theta(1));
+     
 
     % Plot, and adjust axes for better viewing
     plot(plot_x, plot_y)
