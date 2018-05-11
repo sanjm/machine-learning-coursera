@@ -30,11 +30,17 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+%display((sigmoid(all_theta*X')));
+%display(max(sigmoid(all_theta*X')));
 
+[probability indices] = max(sigmoid(all_theta*X'));
 
+%display(probability);
+%display(indices);
 
+p = indices';
 
-
+%display(p);
 
 % =========================================================================
 
