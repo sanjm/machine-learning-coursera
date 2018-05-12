@@ -20,15 +20,19 @@ p = zeros(size(X, 1), 1);
 %       information see 'help max'. If your examples are in rows, then, you
 %       can use max(A, [], 2) to obtain the max for each row.
 %
+%input layer
+a1 = [ones(m, 1) X];
 
-
-
-
-
-
-
-
-
+%hidden layer
+z2=a1*Theta1';
+a2=sigmoid(z2);
+	
+%output layer
+a2=[ones(m,1),a2];
+z3=a2*Theta2';
+hypothesis = sigmoid(z3);
+[probability indices] = max(hypothesis')
+p=indices'
 % =========================================================================
 
 
